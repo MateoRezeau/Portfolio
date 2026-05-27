@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (match) {
           card.style.animationDelay = `${visible * 0.06}s`;
           card.style.animation = 'none';
-          void card.offsetWidth;
+          void card.offsetWidth; // Trigger reflow for restart animation
           card.style.animation = 'fadeUp 0.4s ease both';
           visible++;
         }
@@ -61,67 +61,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ── RESUME UPLOAD ──
-  const resumeInput = document.getElementById('resumeInput');
-  const uploadStatus = document.getElementById('uploadStatus');
-  const resumePreview = document.getElementById('resumePreview');
-  const resumeFrame = document.getElementById('resumeFrame');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const dropZone = document.getElementById('dropZone');
-
-  let uploadedFileURL = null;
-
-  function handleResumeFile(file) {
-    if (!file) return;
-    if (file.type !== 'application/pdf') {
-      uploadStatus.textContent = '✕ Only PDF files are accepted.';
-      uploadStatus.style.color = 'var(--danger)';
-      return;
-    }
-    uploadStatus.textContent = `✓ ${file.name} loaded successfully`;
-    uploadStatus.style.color = 'var(--accent)';
-    if (uploadedFileURL) URL.revokeObjectURL(uploadedFileURL);
-    uploadedFileURL = URL.createObjectURL(file);
-    resumeFrame.src = uploadedFileURL;
-    resumePreview.style.display = 'block';
-    downloadBtn.style.display = 'flex';
-    downloadBtn.onclick = () => {
-      const a = document.createElement('a');
-      a.href = uploadedFileURL;
-      a.download = file.name;
-      a.click();
-    };
-  }
-
-  if (resumeInput) {
-    resumeInput.addEventListener('change', e => handleResumeFile(e.target.files[0]));
-  }
-
-  if (dropZone) {
-    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
-    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
-    dropZone.addEventListener('drop', e => {
-      e.preventDefault();
-      dropZone.classList.remove('dragover');
-      handleResumeFile(e.dataTransfer.files[0]);
-    });
-  }
-
-  // ── CONTACT FORM ──
+  // ── CONTACT FORM WITH FORMSPREE ──
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', e => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+      
       const btn = contactForm.querySelector('.form-submit');
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#4a7c59';
-      btn.style.color = '#e8e2d9';
-      setTimeout(() => {
-        btn.textContent = 'Send Message';
-        btn.style.background = '';
-        btn.style.color = '';
-        contactForm.reset();
-      }, 3000);
+      const formData = new FormData(contactForm);
+      
+      // Disable button UI while transmitting
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      try {
+        const response = await fetch('https://formspree.io/f/xaqkajdy', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Success UI feedback animation
+          btn.textContent = 'Message Sent ✓';
+          btn.style.background = '#4a7c59';
+          btn.style.color = '#e8e2d9';
+          contactForm.reset();
+        } else {
+          const data = await response.json();
+          throw new Error(data.errors ? data.errors.map(err => err.message).join(', ') : 'Submission failed');
+        }
+      } catch (error) {
+        console.error('Formspree Error:', error);
+        btn.textContent = 'Error sending message';
+        btn.style.background = '#df4759'; // Fallback to danger red
+        btn.style.color = '#ffffff';
+      } finally {
+        // Reset button interface back to default state after 3 seconds
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = 'Send Message';
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 3000);
+      }
     });
   }
 
