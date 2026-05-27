@@ -294,51 +294,40 @@
     <div class="page-header">
       <div class="section-label">Résumé <span>/ 03</span></div>
       <h2 class="page-title">My <em style="font-family:var(--serif);font-style:italic;color:var(--accent)">Resume</em></h2>
-      <p class="page-subtitle">Upload your PDF resume here. Recruiters can view and download it directly from this page.</p>
+      <p class="page-subtitle">Review my background in financial modeling, asset management, and corporate credit risk, or download a copy below.</p>
     </div>
 
     <div class="resume-layout">
-      <!-- Left: Upload + Preview -->
-      <div>
-        <div class="resume-upload-zone" id="dropZone">
-          <input type="file" id="resumeInput" accept="application/pdf" />
-          <div class="upload-icon">↑</div>
-          <div class="upload-title">Drop your resume here</div>
-          <div class="upload-hint">PDF only · Max 10 MB · Drag & drop or click to browse</div>
-          <div class="upload-status" id="uploadStatus">No file uploaded yet</div>
+      <div class="resume-viewer-side">
+        <div class="resume-preview-container">
+          <div class="resume-preview-header">
+            <span>Live Document View</span>
+            <span style="color:var(--accent)">Mateo_Rezeau_CV.pdf</span>
+          </div>
+          <iframe id="resumeFrame" src="Mateo_Rezeau_CV.pdf" title="Mateo Rezeau Resume Preview"></iframe>
         </div>
 
-        <div class="resume-preview" id="resumePreview" style="display:none;">
-          <div class="resume-preview-header">
-            <span>Preview</span>
-            <span id="resumeFileName" style="color:var(--accent)">—</span>
-          </div>
-          <iframe id="resumeFrame" title="Resume Preview"></iframe>
-        </div>
+        <a href="Mateo_Rezeau_CV.pdf" download="Mateo_Rezeau_CV.pdf" class="resume-download-btn" id="downloadBtn">
+          ↓ &nbsp; Download PDF Resume
+        </a>
       </div>
 
-      <!-- Right: Info Panel -->
       <div>
         <div class="resume-info-card">
-          <div class="resume-info-title">How this works</div>
+          <div class="resume-info-title">Background Overview</div>
           <div class="resume-info-text">
-            Upload your PDF resume using the panel on the left. It will display a live preview and become available for recruiters to download. <br><br>
-            To make this permanent across visits, host your PDF on a service like <strong style="color:var(--text)">Google Drive</strong>, <strong style="color:var(--text)">Dropbox</strong>, or directly in your repository, and update the <code style="font-family:var(--mono);color:var(--accent);font-size:0.8rem;">resumeFrame.src</code> in <code style="font-family:var(--mono);color:var(--accent);font-size:0.8rem;">main.js</code>.
+            This portfolio serves as a central hub for my technical projects and macroeconomic publications. 
+            The attached CV highlights my academic trajectory at Kedge Business School and specialized competencies in corporate financial analysis, derivatives pricing, and institutional risk metrics.
           </div>
         </div>
 
-        <button class="resume-download-btn" id="downloadBtn" style="display:none;">
-          ↓ &nbsp; Download Resume
-        </button>
-
         <div class="resume-info-card" style="margin-top:1.2rem;">
-          <div class="resume-info-title">Resume Tips</div>
+          <div class="resume-info-title">Core Competencies</div>
           <ul class="resume-tips">
-            <li class="resume-tip">Keep it to one page for early-career profiles</li>
-            <li class="resume-tip">Quantify results: "Increased model accuracy by 18%"</li>
-            <li class="resume-tip">Use ATS-friendly formatting — avoid tables in headers</li>
-            <li class="resume-tip">Tailor the summary for each target role</li>
-            <li class="resume-tip">Include links to GitHub, LinkedIn, and this portfolio</li>
+            <li class="resume-tip"><strong>Financial Modeling:</strong> DCF framework execution, multi-scenario sensitivity tables, and comparable company analysis.</li>
+            <li class="resume-tip"><strong>Risk Diagnostics:</strong> Evaluation of corporate balance sheet health, asset management capital guardrails, and credit scoring methodologies.</li>
+            <li class="resume-tip"><strong>Quantitative Implementations:</strong> Programmatic data mining with Python/R, time-series analysis, and automated macroeconomic reporting pipelines.</li>
+            <li class="resume-tip"><strong>Professional Track:</strong> Rigorous alignment with capital markets analytical standards and active CFA Level I certification preparation.</li>
           </ul>
         </div>
       </div>
@@ -348,7 +337,7 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <div class="footer-copy">© 2025 Alex Morgan</div>
+        <div class="footer-copy">Mateo Rezeau</div>
         <div class="footer-links">
           <span class="footer-link" onclick="navigateTo('home')">Home</span>
           <span class="footer-link" onclick="navigateTo('projects')">Projects</span>
@@ -445,7 +434,7 @@
       </div>
       <div class="form-group">
         <label class="form-label" for="fsubject">Subject</label>
-        <input class="form-input" type="text" id="fsubject" name="subject" placeholder="Internship opportunity / Research collaboration" />
+        <input class="form-input" type="text" id="fsubject" name="subject" placeholder="Work opportunity / Research collaboration" />
       </div>
       <div class="form-group">
         <label class="form-label" for="fmsg">Message</label>
