@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Morgan — Portfolio</title>
+  <meta name="description" content="Portfolio of Alex Morgan — Finance & Data analyst, researcher, and developer." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" data-goto="home" style="cursor:pointer;" onclick="navigateTo('home')">AM.</div>
+    <div class="nav-links" id="navLinks">
+      <button class="nav-link active" data-page="home">Home</button>
+      <button class="nav-link" data-page="projects">Projects</button>
+      <button class="nav-link" data-page="resume">Resume</button>
+      <button class="nav-link" data-page="contact">Contact</button>
+    </div>
+    <button class="nav-menu-btn" id="navMenuBtn" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════════ HOME ══════════════ -->
+<div class="page active" id="home">
+  <div class="container">
+
+    <!-- Hero -->
+    <section class="home-hero">
+      <div class="hero-label">Available for opportunities</div>
+      <h1 class="hero-name">Alex<br><em>Morgan</em></h1>
+      <p class="hero-tagline">Finance analyst &amp; researcher. I study markets, build models, and turn data into insight.</p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-goto="projects" onclick="navigateTo('projects')">View My Work</button>
+        <button class="btn btn-ghost" data-goto="contact" onclick="navigateTo('contact')">Get in Touch</button>
+      </div>
+      <div class="home-scroll-hint">Scroll</div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="section-label">About me <span>/ 01</span></div>
+      <div class="about-grid">
+        <div class="about-bio">
+          <p>I'm a <strong>Finance & Data Science student</strong> at the University of Paris, passionate about the intersection of quantitative research, capital markets, and technology.</p>
+          <p>My work spans equity research, algorithmic trading strategies, academic econometrics papers, and full-stack data projects. I believe rigorous analysis and clear communication are equally important.</p>
+          <p>When not deep in spreadsheets or terminals, I write about <strong>macro trends</strong>, contribute to open-source financial tools, and explore how AI is reshaping investment workflows.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <div class="skill-name">Equity Research</div>
+            <div class="skill-desc">DCF, comps, sector coverage, investment memos</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Quantitative</div>
+            <div class="skill-desc">Python, R, time-series, factor models, backtesting</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Data Engineering</div>
+            <div class="skill-desc">SQL, pandas, APIs, ETL pipelines, dashboards</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Academic Writing</div>
+            <div class="skill-desc">Econometrics, thesis, conference papers</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Tools</div>
+            <div class="skill-desc">Bloomberg, Excel VBA, LaTeX, Git, Tableau</div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Development</div>
+            <div class="skill-desc">JavaScript, React, REST APIs, web scraping</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="section">
+      <div class="section-label">Featured work <span>/ 02</span></div>
+      <div class="featured-projects">
+        <div class="featured-card" onclick="navigateTo('projects')">
+          <div class="card-type">Equity Research</div>
+          <div class="card-title">LVMH Deep-Dive: Pricing Power in a Slowdown</div>
+          <div class="card-desc">40-page initiation report analyzing luxury resilience, brand moat valuation, and China re-opening catalysts.</div>
+          <div class="card-arrow">Read report →</div>
+        </div>
+        <div class="featured-card" onclick="navigateTo('projects')">
+          <div class="card-type">Coding Project</div>
+          <div class="card-title">Options Pricing Dashboard</div>
+          <div class="card-desc">Interactive Black-Scholes &amp; binomial tree calculator with live Greeks visualization built in Python + Streamlit.</div>
+          <div class="card-arrow">View project →</div>
+        </div>
+        <div class="featured-card" onclick="navigateTo('projects')">
+          <div class="card-type">Academic Paper</div>
+          <div class="card-title">Inflation Expectations &amp; Bond Risk Premia</div>
+          <div class="card-desc">Empirical study of the Fisher hypothesis across G7 economies using VAR models and panel data (2000–2023).</div>
+          <div class="card-arrow">Read paper →</div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /container -->
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">© 2025 Alex Morgan</div>
+        <div class="footer-links">
+          <span class="footer-link" onclick="navigateTo('projects')">Projects</span>
+          <span class="footer-link" onclick="navigateTo('resume')">Resume</span>
+          <span class="footer-link" onclick="navigateTo('contact')">Contact</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div><!-- /home -->
+
+
+<!-- ══════════════ PROJECTS ══════════════ -->
+<div class="page" id="projects">
+  <div class="container">
+    <div class="page-header">
+      <div class="section-label">All work <span>/ 02</span></div>
+      <h2 class="page-title">Projects &<br><em style="font-family:var(--serif);font-style:italic;color:var(--accent)">Research</em></h2>
+      <p class="page-subtitle">A curated selection of equity research, academic papers, and personal coding projects.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="equity">Equity Research</button>
+      <button class="filter-btn" data-filter="academic">Academic</button>
+      <button class="filter-btn" data-filter="coding">Coding</button>
+      <button class="filter-btn" data-filter="other">Other</button>
+    </div>
+
+    <!-- Cards -->
+    <div class="projects-grid">
+
+      <div class="project-card" data-category="equity">
+        <div class="project-meta">
+          <span class="project-tag">Equity Research</span>
+          <span class="project-year">2024</span>
+        </div>
+        <div class="project-title">LVMH Deep-Dive: Pricing Power in a Slowdown</div>
+        <div class="project-desc">40-page initiation report. Coverage of all major Maisons, DCF with scenario analysis, peer valuation, and China re-opening thesis.</div>
+        <div class="tag-list">
+          <span class="tag">Luxury</span><span class="tag">DCF</span><span class="tag">Europe</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">📄 PDF Report</span>
+          <span class="project-link">📊 Model</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="equity">
+        <div class="project-meta">
+          <span class="project-tag">Equity Research</span>
+          <span class="project-year">2024</span>
+        </div>
+        <div class="project-title">Semiconductor Sector: AI Supercycle or Bubble?</div>
+        <div class="project-desc">Comparative analysis of NVDA, AMD, ASML. Supply chain dynamics, AI demand drivers, and valuation reality check.</div>
+        <div class="tag-list">
+          <span class="tag">Tech</span><span class="tag">Semiconductors</span><span class="tag">AI</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">📄 PDF Report</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="academic">
+        <div class="project-meta">
+          <span class="project-tag">Academic</span>
+          <span class="project-year">2023</span>
+        </div>
+        <div class="project-title">Inflation Expectations & Bond Risk Premia in G7 Economies</div>
+        <div class="project-desc">VAR models and panel data analysis testing the Fisher hypothesis. Data spans 2000–2023 across US, UK, Germany, France, Japan, Canada, Italy.</div>
+        <div class="tag-list">
+          <span class="tag">Econometrics</span><span class="tag">Macro</span><span class="tag">R</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">📄 Paper</span>
+          <span class="project-link">💻 Code</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="academic">
+        <div class="project-meta">
+          <span class="project-tag">Academic</span>
+          <span class="project-year">2023</span>
+        </div>
+        <div class="project-title">ESG Ratings Divergence: Causes & Market Impact</div>
+        <div class="project-desc">Thesis on disagreement between MSCI, Sustainalytics, and Bloomberg ESG scores. Regression analysis on return predictability and portfolio implications.</div>
+        <div class="tag-list">
+          <span class="tag">ESG</span><span class="tag">Portfolio Theory</span><span class="tag">Python</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">📄 Thesis</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="coding">
+        <div class="project-meta">
+          <span class="project-tag">Coding</span>
+          <span class="project-year">2024</span>
+        </div>
+        <div class="project-title">Options Pricing Dashboard</div>
+        <div class="project-desc">Black-Scholes and binomial tree calculator with live Greeks (Delta, Gamma, Vega, Theta). Built with Python, Streamlit, and Plotly.</div>
+        <div class="tag-list">
+          <span class="tag">Python</span><span class="tag">Derivatives</span><span class="tag">Streamlit</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">🔗 Live App</span>
+          <span class="project-link">💻 GitHub</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="coding">
+        <div class="project-meta">
+          <span class="project-tag">Coding</span>
+          <span class="project-year">2024</span>
+        </div>
+        <div class="project-title">Macro Data Scraper & Dashboard</div>
+        <div class="project-desc">Automated pipeline pulling FRED, ECB, and World Bank data. Cleans and visualizes 50+ macro indicators with a React frontend.</div>
+        <div class="tag-list">
+          <span class="tag">React</span><span class="tag">APIs</span><span class="tag">SQL</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">💻 GitHub</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="coding">
+        <div class="project-meta">
+          <span class="project-tag">Coding</span>
+          <span class="project-year">2023</span>
+        </div>
+        <div class="project-title">Momentum Factor Backtester</div>
+        <div class="project-desc">Long-short momentum strategy backtest on S&P 500 constituents (2010–2023). Sharpe, drawdown analysis, and transaction cost modeling.</div>
+        <div class="tag-list">
+          <span class="tag">Python</span><span class="tag">Quant</span><span class="tag">Backtesting</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">💻 GitHub</span>
+          <span class="project-link">📊 Results</span>
+        </div>
+      </div>
+
+      <div class="project-card" data-category="other">
+        <div class="project-meta">
+          <span class="project-tag">Other</span>
+          <span class="project-year">2024</span>
+        </div>
+        <div class="project-title">CFA Level I — Study Notes & Flashcard System</div>
+        <div class="project-desc">Personal open-source study system built in Notion + Anki. Covers all 10 topics with formula sheets, concept maps, and mock exam trackers.</div>
+        <div class="tag-list">
+          <span class="tag">CFA</span><span class="tag">Notion</span><span class="tag">Open Source</span>
+        </div>
+        <div class="project-links">
+          <span class="project-link">🔗 Notion</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="no-results">No projects match this filter.</div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">© 2025 Alex Morgan</div>
+        <div class="footer-links">
+          <span class="footer-link" onclick="navigateTo('home')">Home</span>
+          <span class="footer-link" onclick="navigateTo('resume')">Resume</span>
+          <span class="footer-link" onclick="navigateTo('contact')">Contact</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div><!-- /projects -->
+
+
+<!-- ══════════════ RESUME ══════════════ -->
+<div class="page" id="resume">
+  <div class="container">
+    <div class="page-header">
+      <div class="section-label">Résumé <span>/ 03</span></div>
+      <h2 class="page-title">My <em style="font-family:var(--serif);font-style:italic;color:var(--accent)">Resume</em></h2>
+      <p class="page-subtitle">Upload your PDF resume here. Recruiters can view and download it directly from this page.</p>
+    </div>
+
+    <div class="resume-layout">
+      <!-- Left: Upload + Preview -->
+      <div>
+        <div class="resume-upload-zone" id="dropZone">
+          <input type="file" id="resumeInput" accept="application/pdf" />
+          <div class="upload-icon">↑</div>
+          <div class="upload-title">Drop your resume here</div>
+          <div class="upload-hint">PDF only · Max 10 MB · Drag & drop or click to browse</div>
+          <div class="upload-status" id="uploadStatus">No file uploaded yet</div>
+        </div>
+
+        <div class="resume-preview" id="resumePreview" style="display:none;">
+          <div class="resume-preview-header">
+            <span>Preview</span>
+            <span id="resumeFileName" style="color:var(--accent)">—</span>
+          </div>
+          <iframe id="resumeFrame" title="Resume Preview"></iframe>
+        </div>
+      </div>
+
+      <!-- Right: Info Panel -->
+      <div>
+        <div class="resume-info-card">
+          <div class="resume-info-title">How this works</div>
+          <div class="resume-info-text">
+            Upload your PDF resume using the panel on the left. It will display a live preview and become available for recruiters to download. <br><br>
+            To make this permanent across visits, host your PDF on a service like <strong style="color:var(--text)">Google Drive</strong>, <strong style="color:var(--text)">Dropbox</strong>, or directly in your repository, and update the <code style="font-family:var(--mono);color:var(--accent);font-size:0.8rem;">resumeFrame.src</code> in <code style="font-family:var(--mono);color:var(--accent);font-size:0.8rem;">main.js</code>.
+          </div>
+        </div>
+
+        <button class="resume-download-btn" id="downloadBtn" style="display:none;">
+          ↓ &nbsp; Download Resume
+        </button>
+
+        <div class="resume-info-card" style="margin-top:1.2rem;">
+          <div class="resume-info-title">Resume Tips</div>
+          <ul class="resume-tips">
+            <li class="resume-tip">Keep it to one page for early-career profiles</li>
+            <li class="resume-tip">Quantify results: "Increased model accuracy by 18%"</li>
+            <li class="resume-tip">Use ATS-friendly formatting — avoid tables in headers</li>
+            <li class="resume-tip">Tailor the summary for each target role</li>
+            <li class="resume-tip">Include links to GitHub, LinkedIn, and this portfolio</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">© 2025 Alex Morgan</div>
+        <div class="footer-links">
+          <span class="footer-link" onclick="navigateTo('home')">Home</span>
+          <span class="footer-link" onclick="navigateTo('projects')">Projects</span>
+          <span class="footer-link" onclick="navigateTo('contact')">Contact</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div><!-- /resume -->
+
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<div class="page" id="contact">
+  <div class="container">
+    <div class="page-header">
+      <div class="section-label">Get in touch <span>/ 04</span></div>
+      <h2 class="page-title">Let's <em style="font-family:var(--serif);font-style:italic;color:var(--accent)">Connect</em></h2>
+      <p class="page-subtitle">Open to internship opportunities, research collaborations, and interesting conversations.</p>
+    </div>
+
+    <div class="contact-layout">
+
+      <!-- Left: Social Links -->
+      <div>
+        <p class="contact-intro">
+          Whether you're a <strong>recruiter</strong>, a fellow <strong>researcher</strong>, or someone who wants to talk markets and data — I'd love to hear from you. Reach out through any of the channels below.
+        </p>
+
+        <ul class="social-list">
+          <li>
+            <a class="social-item" href="https://linkedin.com/in/alexmorgan" target="_blank" rel="noopener">
+              <div class="social-icon">in</div>
+              <div class="social-info">
+                <div class="social-platform">LinkedIn</div>
+                <div class="social-handle">linkedin.com/in/alexmorgan</div>
+              </div>
+              <div class="social-arrow">→</div>
+            </a>
+          </li>
+          <li>
+            <a class="social-item" href="https://github.com/alexmorgan" target="_blank" rel="noopener">
+              <div class="social-icon" style="font-family:var(--mono);font-size:0.8rem;">GH</div>
+              <div class="social-info">
+                <div class="social-platform">GitHub</div>
+                <div class="social-handle">github.com/alexmorgan</div>
+              </div>
+              <div class="social-arrow">→</div>
+            </a>
+          </li>
+          <li>
+            <a class="social-item" href="mailto:alex.morgan@email.com">
+              <div class="social-icon" style="font-size:0.9rem;">@</div>
+              <div class="social-info">
+                <div class="social-platform">Email</div>
+                <div class="social-handle">alex.morgan@email.com</div>
+              </div>
+              <div class="social-arrow">→</div>
+            </a>
+          </li>
+          <li>
+            <a class="social-item" href="tel:+33600000000">
+              <div class="social-icon" style="font-size:0.9rem;">☏</div>
+              <div class="social-info">
+                <div class="social-platform">Phone</div>
+                <div class="social-handle">+33 6 00 00 00 00</div>
+              </div>
+              <div class="social-arrow">→</div>
+            </a>
+          </li>
+          <li>
+            <a class="social-item" href="https://twitter.com/alexmorgan" target="_blank" rel="noopener">
+              <div class="social-icon" style="font-family:var(--mono);font-size:0.75rem;">𝕏</div>
+              <div class="social-info">
+                <div class="social-platform">X / Twitter</div>
+                <div class="social-handle">@alexmorgan</div>
+              </div>
+              <div class="social-arrow">→</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: Contact Form -->
+      <div class="contact-form-side">
+        <div class="section-label" style="margin-bottom:1.5rem;">Send a message <span>/ direct</span></div>
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label class="form-label" for="fname">Full Name</label>
+            <input class="form-input" type="text" id="fname" placeholder="Jane Smith" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="femail">Email Address</label>
+            <input class="form-input" type="email" id="femail" placeholder="jane@company.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fsubject">Subject</label>
+            <input class="form-input" type="text" id="fsubject" placeholder="Internship opportunity / Research collaboration" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="fmsg">Message</label>
+            <textarea class="form-textarea" id="fmsg" placeholder="Hi Alex, I came across your work on..." required></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send Message</button>
+          <p class="form-note">I typically reply within 24–48 hours.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-copy">© 2025 Alex Morgan</div>
+        <div class="footer-links">
+          <span class="footer-link" onclick="navigateTo('home')">Home</span>
+          <span class="footer-link" onclick="navigateTo('projects')">Projects</span>
+          <span class="footer-link" onclick="navigateTo('resume')">Resume</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div><!-- /contact -->
+
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
